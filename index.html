@@ -98,14 +98,6 @@
       <input type="email" name="email" placeholder="Email" required>
       <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
 
-      <label>Meal Choice</label>
-      <select name="meal" required>
-        <option value="">Select your meal</option>
-        <option value="Chicken">Chicken</option>
-        <option value="Beef">Beef</option>
-        <option value="Vegetarian">Vegetarian</option>
-      </select>
-
       <label>Will you bring a +1?</label>
       <select id="plusOneSelect" name="plusOne" required>
         <option value="">Select</option>
@@ -144,7 +136,7 @@
     form.addEventListener('submit', e => {
       e.preventDefault();
       const data = new FormData(form);
-      fetch('https://script.google.com/macros/s/AKfycbwCiIZ0UtuePcd962aR95lYkDOTlFri_GFemgWL2Wc6VD3zeuAyYrWxTRqXKf17hxCYOw/exec', {
+      fetch('https://script.google.com/macros/library/d/1221tpoKJOhLw3TkIphpm13zyoofZrKAcBH1Ri-eD2iIG49QI_sBpGySy/1', {
         method: 'POST',
         body: new URLSearchParams(data)
       })
