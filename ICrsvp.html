@@ -1,66 +1,86 @@
-<form id="rsvpForm">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
-  <select name="meal" required>
-    <option value="">Meal Choice</option>
-    <option value="Chicken">Chicken</option>
-    <option value="Beef">Beef</option>
-    <option value="Vegetarian">Vegetarian</option>
-  </select>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Wedding RSVP</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fdf6f0; text-align: center; padding: 50px; }
+    h1 { color: #b85c38; }
+    form { background: #fff; padding: 30px; border-radius: 10px; display: inline-block; text-align: left; max-width: 400px; width: 100%; }
+    input, select, textarea { display: block; margin: 10px 0; padding: 10px; width: 100%; box-sizing: border-box; }
+    button { padding: 12px 20px; font-size: 16px; background: #b85c38; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #a14d2e; }
+    label { margin-top: 10px; display: block; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>You're Invited!</h1>
+  <p>Please RSVP below:</p>
+  
+  <form id="rsvpForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+    
+    <label>Meal Choice</label>
+    <select name="meal" required>
+      <option value="">Select your meal</option>
+      <option value="Chicken">Chicken</option>
+      <option value="Beef">Beef</option>
+      <option value="Vegetarian">Vegetarian</option>
+    </select>
 
-  <!-- +1 Question -->
-  <label>Will you bring a +1?</label>
-  <select id="plusOneSelect" name="plusOne" required>
-    <option value="">Select</option>
-    <option value="No">No</option>
-    <option value="Yes">Yes</option>
-  </select>
+    <label>Will you bring a +1?</label>
+    <select id="plusOneSelect" name="plusOne" required>
+      <option value="">Select</option>
+      <option value="No">No</option>
+      <option value="Yes">Yes</option>
+    </select>
 
-  <!-- +1 Name Field (hidden by default) -->
-  <input type="text" name="plusOneName" id="plusOneName" placeholder="+1 Name and Surname" style="display:none;">
+    <input type="text" name="plusOneName" id="plusOneName" placeholder="+1 Name and Surname" style="display:none;">
 
-  <textarea name="message" placeholder="Any message for us?"></textarea>
-  <button type="submit">Submit RSVP</button>
-</form>
+    <textarea name="message" placeholder="Any message for us?"></textarea>
 
-<script>
-  const form = document.getElementById('rsvpForm');
-  const plusOneSelect = document.getElementById('plusOneSelect');
-  const plusOneName = document.getElementById('plusOneName');
+    <button type="submit">Submit RSVP</button>
+  </form>
 
-  // Show/hide +1 name field
-  plusOneSelect.addEventListener('change', () => {
-    if (plusOneSelect.value === "Yes") {
-      plusOneName.style.display = "block";
-      plusOneName.required = true;
-    } else {
-      plusOneName.style.display = "none";
-      plusOneName.required = false;
-      plusOneName.value = '';
-    }
-  });
+  <p id="response" style="color: green; font-weight: bold; margin-top: 15px;"></p>
 
-  // Form submission
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch('https://script.google.com/macros/s/AKfycbwCiIZ0UtuePcd962aR95lYkDOTlFri_GFemgWL2Wc6VD3zeuAyYrWxTRqXKf17hxCYOw/exec', {
-      method: 'POST',
-      body: new URLSearchParams(data)
-    })
-    .then(response => response.text())
-    .then(text => {
-      alert("Thank you! Your RSVP has been recorded.");
-      form.reset();
-      plusOneName.style.display = "none";
-    })
-    .catch(err => {
-      alert("Oops! Something went wrong.");
+  <script>
+    const form = document.getElementById('rsvpForm');
+    const plusOneSelect = document.getElementById('plusOneSelect');
+    const plusOneName = document.getElementById('plusOneName');
+    const responseText = document.getElementById('response');
+
+    // Show/hide +1 name field
+    plusOneSelect.addEventListener('change', () => {
+      if (plusOneSelect.value === "Yes") {
+        plusOneName.style.display = "block";
+        plusOneName.required = true;
+      } else {
+        plusOneName.style.display = "none";
+        plusOneName.required = false;
+        plusOneName.value = '';
+      }
     });
-  });
-</script>
 
-
-
-
+    // Form submission
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('https://script.google.com/macros/s/AKfycbwCiIZ0UtuePcd962aR95lYkDOTlFri_GFemgWL2Wc6VD3zeuAyYrWxTRqXKf17hxCYOw/exec', {
+        method: 'POST',
+        body: new URLSearchParams(data)
+      })
+      .then(response => response.text())
+      .then(text => {
+        responseText.innerText = "Thank you! Your RSVP has been recorded.";
+        form.reset();
+        plusOneName.style.display = "none";
+      })
+      .catch(err => {
+        responseText.innerText = "Oops! Something went wrong.";
+      });
+    });
+  </script>
+</body>
+</html>
