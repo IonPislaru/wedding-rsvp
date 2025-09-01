@@ -1,45 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Our Wedding RSVP</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #fdf6f0; text-align: center; padding: 50px; }
-    form { background: #fff; padding: 20px; border-radius: 10px; display: inline-block; }
-    input, select, textarea { display: block; margin: 10px auto; padding: 10px; width: 80%; }
-    button { padding: 10px 20px; font-size: 16px; }
-  </style>
-</head>
-<body>
-  <h1>You're Invited!</h1>
-  <p>Please RSVP below:</p>
-  <form id="rsvpForm">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
-    <textarea name="message" placeholder="Any message for us?"></textarea>
-    <button type="submit">Submit RSVP</button>
-  </form>
+<form id="rsvpForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+  <select name="meal" required>
+    <option value="">Meal Choice</option>
+    <option value="Chicken">Chicken</option>
+    <option value="Beef">Beef</option>
+    <option value="Vegetarian">Vegetarian</option>
+  </select>
 
-  <p id="response" style="color: green; font-weight: bold;"></p>
+  <!-- +1 Question -->
+  <label>Will you bring a +1?</label>
+  <select id="plusOneSelect" name="plusOne" required>
+    <option value="">Select</option>
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
 
-  <script>
-    const form = document.getElementById('rsvpForm');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const data = new FormData(form);
-      fetch('https://script.google.com/macros/s/AKfycbxfxJ0qxat14ViY3b1yppyFvBTVOo4qU2WsqAkivSWfsIEKKtwaK9de5r8SsiLO1iLl/exec', {
-        method: 'POST',
-        body: new URLSearchParams(data)
-      })
-      .then(response => response.text())
-      .then(text => {
-        document.getElementById('response').innerText = "Thank you! Your RSVP has been recorded.";
-        form.reset();
-      })
-      .catch(err => {
-        document.getElementById('response').innerText = "Oops! Something went wrong.";
-      });
+  <!-- +1 Name Field (hidden by default) -->
+  <input type="text" name="plusOneName" id="plusOneName" placeholder="+1 Name and Surname" style="display:none;">
+
+  <textarea name="message" placeholder="Any message for us?"></textarea>
+  <button type="submit">Submit RSVP</button>
+</form>
+
+<script>
+  const form = document.getElementById('rsvpForm');
+  const plusOneSelect = document.getElementById('plusOneSelect');
+  const plusOneName = document.getElementById('plusOneName');
+
+  // Show/hide +1 name field
+  plusOneSelect.addEventListener('change', () => {
+    if (plusOneSelect.value === "Yes") {
+      plusOneName.style.display = "block";
+      plusOneName.required = true;
+    } else {
+      plusOneName.style.display = "none";
+      plusOneName.required = false;
+      plusOneName.value = '';
+    }
+  });
+
+  // Form submission
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('YOUR_WEB_APP_URL_HERE', {
+      method: 'POST',
+      body: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(text => {
+      alert("Thank you! Your RSVP has been recorded.");
+      form.reset();
+      plusOneName.style.display = "none";
+    })
+    .catch(err => {
+      alert("Oops! Something went wrong.");
     });
-  </script>
-</body>
-</html>
+  });
+</script>
+
