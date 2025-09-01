@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Wedding RSVP</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fdf6f0; text-align: center; padding: 50px; }
+    form { background: #fff; padding: 20px; border-radius: 10px; display: inline-block; }
+    input, select, textarea { display: block; margin: 10px auto; padding: 10px; width: 80%; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>You're Invited!</h1>
+  <p>Please RSVP below:</p>
+  <form id="rsvpForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+    <textarea name="message" placeholder="Any message for us?"></textarea>
+    <button type="submit">Submit RSVP</button>
+  </form>
+
+  <p id="response" style="color: green; font-weight: bold;"></p>
+
+  <script>
+    const form = document.getElementById('rsvpForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('https://script.google.com/macros/s/AKfycbxfxJ0qxat14ViY3b1yppyFvBTVOo4qU2WsqAkivSWfsIEKKtwaK9de5r8SsiLO1iLl/exec', {
+        method: 'POST',
+        body: new URLSearchParams(data)
+      })
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('response').innerText = "Thank you! Your RSVP has been recorded.";
+        form.reset();
+      })
+      .catch(err => {
+        document.getElementById('response').innerText = "Oops! Something went wrong.";
+      });
+    });
+  </script>
+</body>
+</html>
