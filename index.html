@@ -1,154 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
-  <title>Our Wedding RSVP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>RSVP - Nunta Ion & Camelia</title>
   <style>
-    body { 
-      font-family: 'Roboto', sans-serif; 
-      background: #fff8f0; 
-      margin: 0; 
-      padding: 0; 
-      text-align: center; 
-      color: #4d3b2f;
-    }
-
-    header {
-      background: #f5e6dc;
-      padding: 50px 20px 30px;
-    }
-
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 50px;
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
       margin: 0;
-      color: #b85c38;
+      padding: 20px;
+      color: #333;
     }
-
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    main {
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    form {
-      background: #ffffff;
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
       padding: 30px;
       border-radius: 15px;
-      max-width: 450px;
-      width: 100%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
-    form input, form select, form textarea {
+    h2 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    h3 {
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+    }
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+    input, select, textarea {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #d1c0b0;
-      border-radius: 6px;
-      font-size: 16px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
       box-sizing: border-box;
     }
-
-    form label {
-      font-weight: bold;
-      margin-top: 15px;
-      display: block;
-    }
-
-    form button {
-      background: #b85c38;
+    button {
+      margin-top: 20px;
+      background: #6c63ff;
       color: white;
       border: none;
-      padding: 15px 25px;
-      font-size: 18px;
+      padding: 14px;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 15px;
-      width: 100%;
+      font-size: 16px;
     }
-
-    form button:hover {
-      background: #a14d2e;
+    button:hover {
+      background: #574fd6;
     }
-
-    #response {
-      margin-top: 15px;
-      font-weight: bold;
+    .event-header {
       text-align: center;
-      color: green;
+      margin-bottom: 15px;
+      font-style: italic;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Nunta "Ion & Camelia"</h1>
-    <p>04.10.2025     17:00</p>
-  </header>
+  <div class="container">
+    <h2>Nunta "Ion & Camelia"</h2>
+    <div class="event-header">
+      Data: 04.10.2025 &nbsp;&nbsp; | &nbsp;&nbsp; Ora: 17:00 <br>
+      Murmur de Izvor - Drăsliceni - Ratuș
+    </div>
 
-  <main>
     <form id="rsvpForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+      <h3>Secțiunea Nunta Noastră</h3>
 
-      <label>Will you bring a +1?</label>
-      <select id="plusOneSelect" name="plusOne" required>
-        <option value="">Select</option>
-        <option value="No">No</option>
-        <option value="Yes">Yes</option>
+      <label for="name">Nume Prenume:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Număr de telefon:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="rsvpWedding">RSVP:</label>
+      <select id="rsvpWedding" name="rsvpWedding" required>
+        <option value="">-- Alegeți --</option>
+        <option value="Da">Da</option>
+        <option value="Nu">Nu</option>
       </select>
 
-      <input type="text" name="plusOneName" id="plusOneName" placeholder="+1 Name and Surname" style="display:none;">
+      <label for="transportToVenue">Aveți nevoie de transport către sală?</label>
+      <select id="transportToVenue" name="transportToVenue" required>
+        <option value="">-- Alegeți --</option>
+        <option value="Da">Da</option>
+        <option value="Nu">Nu</option>
+      </select>
 
-      <textarea name="message" placeholder="Any message for us?"></textarea>
+      <label for="transportToChisinau">Aveți nevoie de transport către Chișinău?</label>
+      <select id="transportToChisinau" name="transportToChisinau" required>
+        <option value="">-- Alegeți --</option>
+        <option value="Da">Da</option>
+        <option value="Nu">Nu</option>
+      </select>
 
-      <button type="submit">Submit RSVP</button>
-      <p id="response"></p>
+      <h3>Secțiunea Zeamă</h3>
+      <div class="event-header">
+        Data: 05.10.2025 &nbsp;&nbsp; | &nbsp;&nbsp; Ora: 15:00 <br>
+        Green Garden - Strășeni
+      </div>
+
+      <label for="nameZeama">Nume Prenume:</label>
+      <input type="text" id="nameZeama" name="nameZeama">
+
+      <label for="rsvpZeama">RSVP:</label>
+      <select id="rsvpZeama" name="rsvpZeama" required>
+        <option value="">-- Alegeți --</option>
+        <option value="Da">Da</option>
+        <option value="Nu">Nu</option>
+      </select>
+
+      <button type="submit">Trimite RSVP</button>
     </form>
-  </main>
+
+    <p id="responseMessage" style="margin-top:20px; font-weight: bold;"></p>
+  </div>
 
   <script>
-    const form = document.getElementById('rsvpForm');
-    const plusOneSelect = document.getElementById('plusOneSelect');
-    const plusOneName = document.getElementById('plusOneName');
-    const responseText = document.getElementById('response');
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzac_LINHqEClFtwFdwN6aPrBtsvBHSsPM7zY6BJJSMa_kieLt82jNzqu9hwM12YJX3/exec"; // paste your Apps Script Web App URL here
+    const form = document.getElementById("rsvpForm");
 
-    // Show/hide +1 name field
-    plusOneSelect.addEventListener('change', () => {
-      if (plusOneSelect.value === "Yes") {
-        plusOneName.style.display = "block";
-        plusOneName.required = true;
-      } else {
-        plusOneName.style.display = "none";
-        plusOneName.required = false;
-        plusOneName.value = '';
-      }
-    });
-
-    // Form submission
-    form.addEventListener('submit', e => {
+    form.addEventListener("submit", e => {
       e.preventDefault();
-      const data = new FormData(form);
-      fetch('https://script.google.com/macros/s/AKfycbwXlfcc4uTrN-wwXZkZh9uW9E5SxFGsa2YczW8Z-8Fg_CTBZ-XJ7cMbcAGAS1UtuSLc/exec', {
-        method: 'POST',
-        body: new URLSearchParams(data)
-      })
-      .then(response => response.text())
-      .then(text => {
-        responseText.innerText = "Thank you! Your RSVP has been recorded.";
-        form.reset();
-        plusOneName.style.display = "none";
-      })
-      .catch(err => {
-        responseText.innerText = "Oops! Something went wrong.";
-      });
+      const formData = new FormData(form);
+
+      fetch(scriptURL, { method: "POST", body: formData })
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("responseMessage").innerText = "Mulțumim! Răspunsul a fost trimis.";
+          form.reset();
+        })
+        .catch(error => {
+          document.getElementById("responseMessage").innerText = "Oops, ceva nu a mers bine.";
+        });
     });
   </script>
 </body>
