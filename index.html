@@ -7,54 +7,61 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background: #fff8f0;
+      background: #e8f5e9; /* light pastel green */
       margin: 0;
       padding: 20px;
-      color: #4d3b2f;
+      color: #2e7d32; /* darker green for text */
     }
+
     .container {
       max-width: 700px;
       margin: auto;
-      background: #fff;
+      background: #ffffff;
       padding: 40px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
+
     h2 {
       font-family: 'Great Vibes', cursive;
       font-size: 50px;
       text-align: center;
       margin: 0;
-      color: #b85c38;
+      color: #388e3c; /* slightly darker green */
     }
+
     .event-header {
       text-align: center;
       font-style: italic;
-      color: #555;
+      color: #4caf50;
       margin-bottom: 20px;
       margin-top: 5px;
     }
+
     h3 {
       margin-top: 30px;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid #c8e6c9;
       padding-top: 20px;
     }
+
     label {
       display: block;
       margin: 12px 0 6px;
       font-weight: bold;
     }
+
     input, select {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #c8e6c9;
       border-radius: 8px;
       font-size: 16px;
       box-sizing: border-box;
     }
+
     button {
       margin-top: 20px;
-      background: #b85c38;
+      background: #43a047; /* medium green */
       color: white;
       border: none;
       padding: 14px;
@@ -63,9 +70,11 @@
       font-size: 16px;
       width: 100%;
     }
+
     button:hover {
-      background: #a14d2e;
+      background: #2e7d32; /* darker green on hover */
     }
+
     #responseMessage {
       margin-top: 20px;
       font-weight: bold;
@@ -84,6 +93,7 @@
 
     <form id="rsvpForm">
       <h3>Secțiunea Nunta Noastră</h3>
+
       <label for="nameNunta">Nume Prenume:</label>
       <input type="text" id="nameNunta" name="nameNunta" required>
 
@@ -134,7 +144,7 @@
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzac_LINHqEClFtwFdwN6aPrBtsvBHSsPM7zY6BJJSMa_kieLt82jNzqu9hwM12YJX3/exec"; // paste your Apps Script Web App URL here
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzac_LINHqEClFtwFdwN6aPrBtsvBHSsPM7zY6BJJSMa_kieLt82jNzqu9hwM12YJX3/exec"; // replace with your Apps Script URL
     const form = document.getElementById("rsvpForm");
 
     form.addEventListener("submit", e => {
