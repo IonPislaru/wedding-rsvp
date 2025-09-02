@@ -7,61 +7,54 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background: #e8f5e9; /* light pastel green */
+      background: #fff8f0;
       margin: 0;
       padding: 20px;
-      color: #2e7d32; /* darker green for text */
+      color: #4d3b2f;
     }
-
     .container {
       max-width: 700px;
       margin: auto;
-      background: #ffffff;
+      background: #fff;
       padding: 40px;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
-
     h2 {
       font-family: 'Great Vibes', cursive;
       font-size: 50px;
       text-align: center;
       margin: 0;
-      color: #388e3c; /* slightly darker green */
+      color: #b85c38;
     }
-
     .event-header {
       text-align: center;
       font-style: italic;
-      color: #4caf50;
+      color: #555;
       margin-bottom: 20px;
       margin-top: 5px;
     }
-
     h3 {
       margin-top: 30px;
-      border-top: 1px solid #c8e6c9;
+      border-top: 1px solid #ddd;
       padding-top: 20px;
     }
-
     label {
       display: block;
       margin: 12px 0 6px;
       font-weight: bold;
     }
-
     input, select {
       width: 100%;
       padding: 10px;
-      border: 1px solid #c8e6c9;
+      border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 16px;
       box-sizing: border-box;
     }
-
     button {
       margin-top: 20px;
-      background: #43a047; /* medium green */
+      background: #b85c38;
       color: white;
       border: none;
       padding: 14px;
@@ -70,11 +63,9 @@
       font-size: 16px;
       width: 100%;
     }
-
     button:hover {
-      background: #2e7d32; /* darker green on hover */
+      background: #a14d2e;
     }
-
     #responseMessage {
       margin-top: 20px;
       font-weight: bold;
@@ -143,7 +134,7 @@
   </div>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzac_LINHqEClFtwFdwN6aPrBtsvBHSsPM7zY6BJJSMa_kieLt82jNzqu9hwM12YJX3/exec"; // paste your Apps Script Web App URL here
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzDANKjfNa2wv7xZ87uNAO4Eb0GJI-AZVAeh6bOZeHo7rKpAZ-epn_nMpKuAnW3OwBA1w/exec"; // paste your Apps Script Web App URL here
     const form = document.getElementById("rsvpForm");
 
     form.addEventListener("submit", e => {
