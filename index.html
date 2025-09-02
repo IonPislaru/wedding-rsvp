@@ -3,25 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>RSVP - Nunta Ion & Camelia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
+      font-family: 'Roboto', sans-serif;
+      background: #fff8f0;
       margin: 0;
       padding: 20px;
-      color: #333;
+      color: #4d3b2f;
     }
     .container {
       max-width: 700px;
       margin: auto;
-      background: white;
-      padding: 30px;
+      background: #fff;
+      padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
       text-align: center;
-      margin-bottom: 5px;
+      margin: 0;
+      color: #b85c38;
+    }
+    .event-header {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 20px;
+      margin-top: 5px;
     }
     h3 {
       margin-top: 30px;
@@ -33,31 +44,33 @@
       margin: 12px 0 6px;
       font-weight: bold;
     }
-    input, select, textarea {
+    input, select {
       width: 100%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
+      font-size: 16px;
       box-sizing: border-box;
     }
     button {
       margin-top: 20px;
-      background: #6c63ff;
+      background: #b85c38;
       color: white;
       border: none;
       padding: 14px;
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
+      width: 100%;
     }
     button:hover {
-      background: #574fd6;
+      background: #a14d2e;
     }
-    .event-header {
+    #responseMessage {
+      margin-top: 20px;
+      font-weight: bold;
       text-align: center;
-      margin-bottom: 15px;
-      font-style: italic;
-      color: #555;
+      color: green;
     }
   </style>
 </head>
@@ -65,35 +78,34 @@
   <div class="container">
     <h2>Nunta "Ion & Camelia"</h2>
     <div class="event-header">
-      Data: 04.10.2025 &nbsp;&nbsp; | &nbsp;&nbsp; Ora: 17:00 <br>
+      Data: 04.10.2025 &nbsp; | &nbsp; Ora: 17:00 <br>
       Murmur de Izvor - Drăsliceni - Ratuș
     </div>
 
     <form id="rsvpForm">
       <h3>Secțiunea Nunta Noastră</h3>
-
-      <label for="name">Nume Prenume:</label>
-      <input type="text" id="name" name="nameNunta" required>
+      <label for="nameNunta">Nume Prenume:</label>
+      <input type="text" id="nameNunta" name="nameNunta" required>
 
       <label for="phone">Număr de telefon:</label>
       <input type="tel" id="phone" name="phone" required>
 
-      <label for="rsvpWedding">RSVP:</label>
-      <select id="rsvpWedding" name="rsvpNunta" required>
+      <label for="rsvpNunta">RSVP:</label>
+      <select id="rsvpNunta" name="rsvpNunta" required>
         <option value="">-- Alegeți --</option>
         <option value="Da">Da</option>
         <option value="Nu">Nu</option>
       </select>
 
-      <label for="transportToVenue">Aveți nevoie de transport către sală?</label>
-      <select id="transportToVenue" name="transportSala" required>
+      <label for="transportSala">Aveți nevoie de transport către sală?</label>
+      <select id="transportSala" name="transportSala" required>
         <option value="">-- Alegeți --</option>
         <option value="Da">Da</option>
         <option value="Nu">Nu</option>
       </select>
 
-      <label for="transportToChisinau">Aveți nevoie de transport către Chișinău?</label>
-      <select id="transportToChisinau" name="transportChisinau" required>
+      <label for="transportChisinau">Aveți nevoie de transport către Chișinău?</label>
+      <select id="transportChisinau" name="transportChisinau" required>
         <option value="">-- Alegeți --</option>
         <option value="Da">Da</option>
         <option value="Nu">Nu</option>
@@ -101,7 +113,7 @@
 
       <h3>Secțiunea Zeamă</h3>
       <div class="event-header">
-        Data: 05.10.2025 &nbsp;&nbsp; | &nbsp;&nbsp; Ora: 15:00 <br>
+        Data: 05.10.2025 &nbsp; | &nbsp; Ora: 15:00 <br>
         Green Garden - Strășeni
       </div>
 
@@ -118,7 +130,7 @@
       <button type="submit">Trimite RSVP</button>
     </form>
 
-    <p id="responseMessage" style="margin-top:20px; font-weight: bold;"></p>
+    <p id="responseMessage"></p>
   </div>
 
   <script>
@@ -142,6 +154,3 @@
   </script>
 </body>
 </html>
-
-
-
